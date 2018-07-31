@@ -192,10 +192,6 @@ footer ul li a:hover{
     left: 10px;
 }
 
-<style>
-    img{max-width:100%;}
-</style>
-
 .git-logo, .github-logo{
     display: inline-block;
     vertical-align: middle;
