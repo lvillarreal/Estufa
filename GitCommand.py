@@ -21,10 +21,9 @@ while linea != '':	#mientras no se termine el archivo
 	linea = f.readline()
 	#Cuando se encuentra el sector de codigo donde se especifica la fecha y hora, se modifica
 	if linea == '				<!-- FECHA Y HORA -->\n':
-		linea = f.readline()
 		print(f.tell())
 		f.seek(f.tell(),0)
-		f.write('				<font size=%c30%c%c>%s</font>'%(comilla,porcentaje,comilla,fyh))
+		f.write('				<font size=%c30%c%c>%s</font>\n'%(comilla,porcentaje,comilla,fyh))
 		linea = ''
 	
 #Se cierra el archivo
