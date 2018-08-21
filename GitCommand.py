@@ -3,22 +3,30 @@ import time
 import os
 import sys 
 
+comilla = '"'
+porcentaje = '%'
+
 #Se obtiene la fecha y hora
 fyh = time.strftime("%c")
-
+print(fyh)
 #Se abre el archivo 
-f = open('/home/pi/Estufa/index.html','+')
+f= open('index.html','r+')	#lectura y escritura
 
-# Se lee el archivo
-linea = f.readline()
+# Se comienza a leer el archivo
+linea = f.readline();
+
 
 #Se encuentra la linea donde se especifica la fecha y hora, y se actualiza
-while linea != '':
-	if linea == '				<!-- FECHA Y HORA -->':
+while linea != '':	#mientras no se termine el archivo
+	linea = f.readline()
+	#Cuando se encuentra el sector de codigo donde se especifica la fecha y hora, se modifica
+	if linea == '				<!-- FECHA Y HORA -->\n':
 		linea = f.readline()
-		f.write('				<font size="30%">%c</font>'%(fyh))
+		print(f.tell())
+		f.seek(f.tell(),0)
+		f.write('				<font size=%c30%c%c>%s</font>'%(comilla,porcentaje,comilla,fyh))
 		linea = ''
-
+	
 #Se cierra el archivo
 f.close()
 
